@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Hello, World!</h1>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script type="text/javascript">
+		function onLoad() {
+			let consoleDiv = document.getElementsByClassName("console")[0];
+
+			let addLine = function (text, withAnimation) {
+				let newLine = document.createElement("span");
+				consoleDiv.appendChild(newLine);
+
+				if (!withAnimation) {
+					newLine.innerText = ">" + text;
+					return;
+				}
+
+				let i = 0;
+				let animeOutput = function () {
+					newLine.innerText = ">" + text.substr(0, ++i);
+					if (i < text.length) {
+						setTimeout(animeOutput, 300);
+					}
+				};
+				newLine.innerText = ">";
+				setTimeout(animeOutput, 2000);
+			};
+
+			addLine("Login " + Date(), false);
+			addLine("Hello, World!", true);
+		}
+	</script>
+</head>
+
+<body onload="onLoad()">
+	<div class="console"></div>
 </body>
+
 </html>
