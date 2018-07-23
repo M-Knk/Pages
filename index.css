@@ -1,0 +1,9 @@
+body {
+	background-color: black;
+}
+
+div.console span {
+	color: lime;
+	font-size: 0.8em;
+	display: block;
+}
